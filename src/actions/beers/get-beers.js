@@ -11,12 +11,8 @@ export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-      fetch('http://api.brewerydb.com/v2/search?key=e3710d383a093f086152b9af977123ce&q=guinness&type=beer', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }
+      fetch('http://api.brewerydb.com/v2/search?key=e3710d383a093f086152b9af977123ce&q=guinness&type=beer&hasLabels=Y', {
+        method: 'GET'
       }).then(response => response.json())
       .then((json) => {
         dispatch({ type: APP_DONE_LOADING })
