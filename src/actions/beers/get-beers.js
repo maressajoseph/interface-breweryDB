@@ -7,11 +7,21 @@ import {
 
 export const FETCHED_BEERS = 'FETCHED_BEERS'
 
-export default () => {
+export default ({ query } = {}) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-      fetch('http://api.brewerydb.com/v2/search?key=e3710d383a093f086152b9af977123ce&q=guinness&type=beer&hasLabels=Y', {
+      let search = { query: {}, collation: { locale: 'en' } }
+      if (query) {
+        const regex = { $regex: query, $options: 'i' }
+        search.query = {
+          $or: [
+            { name: regex },
+          ]
+        }
+      }
+
+      fetch('http://api.brewerydb.com/v2/beers?styleId=3&name=&order=ibu&hasLabels=Y&key=e3710d383a093f086152b9af977123ce', {
         method: 'GET'
       }).then(response => response.json())
       .then((json) => {
