@@ -5,6 +5,16 @@ import TextField from 'material-ui/TextField'
 import searchBeers from '../actions/beers/get-beers'
 import updateQuery from '../actions/beers/search-beers'
 import SearchIcon from 'material-ui/svg-icons/action/search'
+import './SearchBar.css'
+
+const styles = {
+  underlineStyle: {
+    border: "1px solid yellow"
+  },
+  underlineStyle1: {
+    border: "1.5px solid yellow"
+  }
+}
 
 class SearchBar extends PureComponent {
   static propTypes = {
@@ -32,10 +42,13 @@ class SearchBar extends PureComponent {
       <div className="searchBar">
         <TextField
           type="search"
+          className="search"
           onChange={this.textSearch}
           onKeyDown={this.textSearch}
-          fullWidth={false}
-          hintText={< SearchIcon />}
+          fullWidth={true}
+          underlineStyle={styles.underlineStyle}
+          underlineFocusStyle={styles.underlineStyle1}
+          hintText={< SearchIcon color={'black'} />}
           />
       </div>
     )

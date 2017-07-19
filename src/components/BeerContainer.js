@@ -1,17 +1,17 @@
 import React, { PureComponent } from "react"
 import { connect } from 'react-redux'
+import './BeerContainer.css'
 
 export class BeerContainer extends PureComponent {
   render() {
     const { beers } = this.props
-    console.log(beers)
     return (
-      <div>
+      <div className="allbeers">
         {beers.map((b, i) => {
           return (
             <div key={i}>
               <h3>{b.name}</h3>
-              <img src={b.labels.icon} alt="beer"/>
+              <img src={b.labels.medium} alt="beer"/>
             </div>
           )
 
