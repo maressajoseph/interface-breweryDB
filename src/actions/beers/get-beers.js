@@ -13,34 +13,46 @@ export default ({ query } = {}) => {
 
       let search = { query: {}, collation: { locale: 'en' } }
       if (query) {
-        const regex = { $regex: query, $options: 'i' }
-        search.query = {
-          $or: [
-            { name: regex },
-          ]
-        }
+        fetch(`http://api.brewerydb.com/v2/beers?styleId=3&name=${query}&order=ibu&hasLabels=Y&key=e3710d383a093f086152b9af977123ce`, {
+          method: 'GET'
+        }).then(response => response.json())
+        .then((json) => {
+          dispatch({ type: APP_DONE_LOADING })
+          dispatch({ type: LOAD_SUCCESS })
+
+          dispatch({
+            type: FETCHED_BEERS,
+            payload: json.data
+          })
+        })
+        .catch((error) => {
+          dispatch({ type: APP_DONE_LOADING })
+          dispatch({
+            type: LOAD_ERROR,
+            payload: error.message
+          })
+        })
+      } else {
+        fetch(`http://api.brewerydb.com/v2/beers?styleId=3&order=ibu&hasLabels=Y&key=e3710d383a093f086152b9af977123ce`, {
+          method: 'GET'
+        }).then(response => response.json())
+        .then((json) => {
+          dispatch({ type: APP_DONE_LOADING })
+          dispatch({ type: LOAD_SUCCESS })
+
+          dispatch({
+            type: FETCHED_BEERS,
+            payload: json.data
+          })
+        })
+        .catch((error) => {
+          dispatch({ type: APP_DONE_LOADING })
+          dispatch({
+            type: LOAD_ERROR,
+            payload: error.message
+          })
+        })
       }
-
-      fetch('http://api.brewerydb.com/v2/beers?styleId=3&name=&order=ibu&hasLabels=Y&key=e3710d383a093f086152b9af977123ce', {
-        method: 'GET'
-      }).then(response => response.json())
-      .then((json) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({ type: LOAD_SUCCESS })
-
-        dispatch({
-          type: FETCHED_BEERS,
-          payload: json.data
-        })
-      })
-      .catch((error) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({
-          type: LOAD_ERROR,
-          payload: error.message
-        })
-      })
-
 
 
   }
