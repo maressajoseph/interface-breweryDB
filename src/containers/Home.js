@@ -15,8 +15,8 @@ export class Home extends PureComponent {
     return (
       <div>
         <Banner />
-        <BeerContainer />
         <SearchBar />
+        <BeerContainer />
       </div>
     )
   }
