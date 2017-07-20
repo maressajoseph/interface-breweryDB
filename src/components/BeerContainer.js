@@ -9,9 +9,9 @@ export class BeerContainer extends PureComponent {
       <div className="allbeers">
         {beers.map((b, i) => {
           return (
-            <div key={i}>
-              <h3>{b.name}</h3>
-              <img src={b.labels.medium} alt="beer"/>
+            <div key={i} className="onebeer">
+              <h3>{b.name.toUpperCase()}</h3>
+              <img src={b.labels.medium} alt="beer" className="beerimage"/>
             </div>
           )
 

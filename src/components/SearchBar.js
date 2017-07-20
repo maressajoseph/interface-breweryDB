@@ -9,10 +9,10 @@ import './SearchBar.css'
 
 const styles = {
   underlineStyle: {
-    border: "1px solid yellow"
+    border: "1px solid #ff9716"
   },
   underlineStyle1: {
-    border: "1.5px solid yellow"
+    border: "1.5px solid #ff9716"
   }
 }
 
