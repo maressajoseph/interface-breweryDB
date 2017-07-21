@@ -14,6 +14,7 @@ export class BeerContainer extends PureComponent {
               <h3>{b.name.toUpperCase()}</h3>
               <div className="line"></div>
               <p>{b.abv}%</p>
+              <div id="popup">{b.description}</div>
             </div>
           )
 
