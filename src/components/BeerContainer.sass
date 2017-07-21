@@ -3,15 +3,38 @@
 h3
   font-weight: 500
   font-size: 20px
+  text-align: center
+
+p
+  text-align: center
+  margin-bottom: 5%
+  font-size: 16px
 
 .allbeers
   display: flex
-  margin: 5% 5%
+  flex-wrap: wrap
+  justify-content: center
+  margin-left: 5%
+  margin-top: 4%
 
 .onebeer
-  width: 33%
-  margin-right: 2%
+  margin-right: 3%
+  width: 30%
+  justify-content: center
+  margin-bottom: 2%
+  &:hover
+    .line
+      width: 30%
+
+.line
+  background-color: #ff9716
+  width: 20%
+  height: 1%
+  margin: auto
+
 
 .beerimage
-  width: auto
+  width: 60%
   height: auto
+  margin-left: 20%
+  margin-top: 5%
