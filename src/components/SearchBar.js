@@ -22,15 +22,6 @@ class SearchBar extends PureComponent {
     searchBeers: PropTypes.func.isRequired,
   }
 
-  componentWillUpdate(nextProps) {
-    const { query } = nextProps.searchQuery
-    const oldQuery = this.props.query
-
-    if (query !== oldQuery) {
-      this.props.searchBeers({ query })
-    }
-  }
-
   textSearch = (event) => {
     const query = event.target.value
     if (query.length > 0 && query.length < 3) return
