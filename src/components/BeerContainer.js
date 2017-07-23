@@ -9,8 +9,8 @@ export class BeerContainer extends PureComponent {
     const { query } = this.props.searchQuery
 
     if (query) {
-      const beerswithquery = beers.filter((beer) => beer.name.toLowerCase().includes(query) )
-  
+      const beerswithquery = beers.filter((beer) => beer.name.toLowerCase().includes(query.toLowerCase()) )
+
       return (
         <div className="allbeers">
           {beerswithquery.map((b, i) => {
