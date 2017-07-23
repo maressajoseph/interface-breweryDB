@@ -4,11 +4,15 @@ h3
   font-weight: 500
   font-size: 20px
   text-align: center
+  @media screen and (max-width: 490px)
+    font-size: 14px
 
 p
   text-align: center
   margin-bottom: 5%
   font-size: 16px
+  @media screen and (max-width: 490px)
+    font-size: 13px
 
 .allbeers
   display: flex
@@ -32,6 +36,8 @@ p
     background-color: rgba(255, 255, 255, 0.8)
     position: absolute
     width: 25%
+    @media screen and (max-width: 490px)
+      font-size: 12px
   &:hover
     #popup
       display: block
