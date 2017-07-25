@@ -13,14 +13,14 @@ export class BeerContainer extends PureComponent {
 
       return (
         <div className="allbeers">
-          {beerswithquery.map((b, i) => {
+          {beerswithquery.map((beer, index) => {
             return (
-              <div key={i} className="onebeer">
-                <img src={b.labels.medium} alt="beer" className="beerimage"/>
-                <h3 className="beername">{b.name.toUpperCase()}</h3>
+              <div key={index} className="onebeer">
+                <img src={beer.labels.medium} alt="beer" className="beerimage"/>
+                <h3 className="beername">{beer.name.toUpperCase()}</h3>
                 <div className="line"></div>
-                <p>{b.abv}%</p>
-                <div id="popup">{b.description}</div>
+                <p>{beer.abv}%</p>
+                <div id="popup">{beer.description}</div>
               </div>
             )
           })}
@@ -29,14 +29,14 @@ export class BeerContainer extends PureComponent {
     } else {
       return (
         <div className="allbeers">
-          {beers.map((b, i) => {
+          {beers.map((beer, index) => {
             return (
-              <div key={i} className="onebeer">
-                <img src={b.labels.medium} alt="beer" className="beerimage"/>
-                <h3>{b.name.toUpperCase()}</h3>
+              <div key={index} className="onebeer">
+                <img src={beer.labels.medium} alt="beer" className="beerimage"/>
+                <h3>{beer.name.toUpperCase()}</h3>
                 <div className="line"></div>
-                <p>{b.abv}%</p>
-                <div id="popup">{b.description}</div>
+                <p>{beer.abv}%</p>
+                <div id="popup">{beer.description}</div>
               </div>
             )
           })}

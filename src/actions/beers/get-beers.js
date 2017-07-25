@@ -7,7 +7,7 @@ import {
 
 export const FETCHED_BEERS = 'FETCHED_BEERS'
 
-export default ({ query } = {}) => {
+export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
